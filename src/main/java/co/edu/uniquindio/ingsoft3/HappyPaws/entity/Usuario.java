@@ -24,6 +24,10 @@ public class Usuario {
 
     private String email;
 
+    private String password;
+
+    private String username;
+
     private String tipoDocumento;
 
     private String numeroDocumento;
