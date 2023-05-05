@@ -1,6 +1,9 @@
 package co.edu.uniquindio.ingsoft3.HappyPaws.controllers;
 
+import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Mascota;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Usuario;
+import co.edu.uniquindio.ingsoft3.HappyPaws.repository.ProductoRepository;
+import co.edu.uniquindio.ingsoft3.HappyPaws.service.MascotaServiceImpl;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.ProductoServiceImpl;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +18,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class vistasController {
 
+
     @Autowired
     private UsuarioServiceImpl usuarioService;
 
     @Autowired
     private ProductoServiceImpl productoService;
+
+    @Autowired
+    private MascotaServiceImpl mascotaService;
+
+
+    @GetMapping("/")
+    public String inicio(Model model){
+        return "inicio";
+    }
 
     @GetMapping("/listar")
     public String mostrarListaClientes(Model model){
@@ -28,7 +41,7 @@ public class vistasController {
         return "listarClientes";
     }
 
-    @GetMapping()
+    @GetMapping("/login")
     public String mostrarLogin(Model model){
         Usuario usuario = new Usuario();
         model.addAttribute("usuario",usuario);
@@ -74,5 +87,19 @@ public class vistasController {
         model.addAttribute("titulo","Lista de productos");
         model.addAttribute("productos",productoService.listarProductos());
         return "listarProductos";
+    }
+
+    @GetMapping("/mascota")
+    public String formMascota(Model model){
+        Mascota mascota = new Mascota();
+        model.addAttribute("titulo","Registro de mascota");
+        model.addAttribute("mascota",mascota);
+        return "formMascota";
+    }
+
+    @PostMapping("/mascota")
+    public String guardarMascota(Mascota mascota){
+        mascotaService.guardarMascota(mascota);
+        return "redirect:/";
     }
 }

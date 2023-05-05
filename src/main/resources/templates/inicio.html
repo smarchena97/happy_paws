@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">HappyPaws</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Servicios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Nosotros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contacto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero text-center">
+    <div class="container">
+        <h1>Bienvenidos a HappyPaws</h1>
+        <p class="lead">Ofrecemos servicios de alta calidad para el cuidado de tus mascotas</p>
+        <a href="#" class="btn btn-primary btn-lg">Ver Servicios</a>
+        <a th:href="@{/productos}" class="btn btn-primary btn-lg">Ver Productos</a>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-heartbeat fa-3x"></i>
+                    <h3>Servicios Médicos</h3>
+                    <p>Contamos con un equipo de médicos altamente capacitados para el cuidado de la salud de tus
+                        mascotas.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-bath fa-3x"></i>
+                    <h3>Peluquería y Baño</h3>
+                    <p>Ofrecemos servicios de peluquería y baño para que tus mascotas se vean y se sientan siempre
+                        bien.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-clipboard-list fa-3x"></i>
+                    <h3>Historial Médico</h3>
+                    <p>Llevamos unregistro detallado de la historia médica de tus mascotas para asegurarnos de brindar
+                        el mejor cuidado posible.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Call to Action -->
+<section class="cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Agenda una Cita Hoy</h2>
+                <p>Estamos disponibles para atender a tus mascotas y brindarles el cuidado que necesitan.</p>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="btn btn-secondary btn-lg btn-block">Agendar Cita</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer bg-light text-center">
+    <div class="container">
+        <ul class="list-inline mb-3">
+            <li class="list-inline-item">
+                <a href="#">Inicio</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">Servicios</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">Nosotros</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">Contacto</a>
+            </li>
+        </ul>
+        <p class="mb-0">&copy; 2023 Veterinaria App. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>
