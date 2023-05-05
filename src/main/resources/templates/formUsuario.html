@@ -22,78 +22,69 @@
         </div>
     </div>
 </nav>
-
+<br>
 <div class="container">
-    <!--<form th:action="@{/form}" th:object="${usuario}" method="post">
-        <table>
-
-            <tr>
-                <td>Nombre</td>
-                <td><input type="text" th:field="*{nombre}"/></td>
-            </tr>
-            <tr>
-                <td>Apellido</td>
-                <td><input type="text" th:field="*{apellido}"/></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" th:field="*{email}"/></td>
-            </tr>
-            <tr>
-                <td>Username</td>
-                <td><input type="text" th:field="*{username}"/></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" th:field="*{password}"/></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="Registrarse"/></td>
-            </tr>
-        </table>
-        <input type="hidden" th:field="*{idUsuario}"/>
-    </form>-->
-
-    <div class="container py-4">
-        <div class="card bg-light">
-            <div class="card-header" th:text="${titulo}"></div>
-            <div class="card-body">
-                <form th:action="@{/form}" th:object="${usuario}" method="post">
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="'Nombre'"></label>
-                        <input type="text" th:field="*{nombre}" class="form-control"/>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="'Apellido'"></label>
-                        <input type="text" th:field="*{apellido}" class="form-control"/>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="'Email'"></label>
-                        <input type="email" th:field="*{email}" class="form-control"/>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="'Username'"></label>
-                        <input type="text" th:field="*{username}" class="form-control"/>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="'Password'"></label>
-                        <input type="password" th:field="*{password}" class="form-control"/>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="'Tipo de documento'"></label>
-                        <input type="text" th:field="*{tipoDocumento}" class="form-control"/>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="'Numero de documento'"></label>
-                        <input type="text" th:field="*{numeroDocumento}" class="form-control"/>
-                    </div>
-                    <input type="submit" th:value="${titulo}" class="btn btn-secondary"/>
-                </form>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card bg-light">
+                <div class="card-header text-center" th:text="'Registro de Usuarios'"></div>
+                <div class="card-body">
+                    <form th:action="@{/form}" th:object="${usuario}" method="post">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" th:text="'Nombre'"></label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{nombre}" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" th:text="'Apellido'"></label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{apellido}" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" th:text="'Email'"></label>
+                            <div class="col-sm-8">
+                                <input type="email" th:field="*{email}" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" th:text="'Username'"></label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{username}" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" th:text="'Password'"></label>
+                            <div class="col-sm-8">
+                                <input type="password" th:field="*{password}" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" th:text="'Tipo de documento'"></label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{tipoDocumento}" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" th:text="'Numero de documento'"></label>
+                            <div class="col-sm-8">
+                                <input type="text" th:field="*{numeroDocumento}" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            <div class="col-sm-6">
+                                <input type="submit" th:value="${titulo}" class="btn btn-primary btn-block"/>
+                            </div>
+                        </div>
+                        <input type="hidden" th:field="*{idUsuario}"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
 </div>
+
 
 
 </body>
