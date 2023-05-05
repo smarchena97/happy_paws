@@ -22,4 +22,9 @@ public class ProductoServiceImpl implements ProductoService{
     public Producto buscarPorNombre(String nombre) {
         return productoRepository.findByNombre(nombre);
     }
+
+    @Override
+    public Producto guardarProducto(Producto producto) {
+        return productoRepository.save(producto);
+    }
 }

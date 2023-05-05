@@ -7,8 +7,24 @@
 </head>
 <body>
 
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">HappyPaws</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/register}">Registro</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
-    <form th:action="@{/form}" th:object="${usuario}" method="post">
+    <!--<form th:action="@{/form}" th:object="${usuario}" method="post">
         <table>
 
             <tr>
@@ -36,7 +52,47 @@
             </tr>
         </table>
         <input type="hidden" th:field="*{idUsuario}"/>
-    </form>
+    </form>-->
+
+    <div class="container py-4">
+        <div class="card bg-light">
+            <div class="card-header" th:text="${titulo}"></div>
+            <div class="card-body">
+                <form th:action="@{/form}" th:object="${usuario}" method="post">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" th:text="'Nombre'"></label>
+                        <input type="text" th:field="*{nombre}" class="form-control"/>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" th:text="'Apellido'"></label>
+                        <input type="text" th:field="*{apellido}" class="form-control"/>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" th:text="'Email'"></label>
+                        <input type="email" th:field="*{email}" class="form-control"/>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" th:text="'Username'"></label>
+                        <input type="text" th:field="*{username}" class="form-control"/>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" th:text="'Password'"></label>
+                        <input type="password" th:field="*{password}" class="form-control"/>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" th:text="'Tipo de documento'"></label>
+                        <input type="text" th:field="*{tipoDocumento}" class="form-control"/>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" th:text="'Numero de documento'"></label>
+                        <input type="text" th:field="*{numeroDocumento}" class="form-control"/>
+                    </div>
+                    <input type="submit" th:value="${titulo}" class="btn btn-secondary"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 

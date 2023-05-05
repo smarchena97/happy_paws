@@ -1,10 +1,13 @@
 package co.edu.uniquindio.ingsoft3.HappyPaws.controllers;
 
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Mascota;
+import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Producto;
+import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Servicio;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Usuario;
 import co.edu.uniquindio.ingsoft3.HappyPaws.repository.ProductoRepository;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.MascotaServiceImpl;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.ProductoServiceImpl;
+import co.edu.uniquindio.ingsoft3.HappyPaws.service.ServicioServiceImpl;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +30,9 @@ public class vistasController {
 
     @Autowired
     private MascotaServiceImpl mascotaService;
+
+    @Autowired
+    private ServicioServiceImpl servicioService;
 
 
     @GetMapping("/")
@@ -101,5 +107,40 @@ public class vistasController {
     public String guardarMascota(Mascota mascota){
         mascotaService.guardarMascota(mascota);
         return "redirect:/";
+    }
+
+    @GetMapping("/servicios")
+    public String listarServicios(Model model){
+        model.addAttribute("titulo","Lista de servicios");
+        model.addAttribute("servicios",servicioService.listarServicios());
+        return "listarServicios";
+    }
+
+    @GetMapping("/crear_producto")
+    public String mostrarFormProducto(Model model){
+        Producto producto = new Producto();
+        model.addAttribute("titulo","Crear Productos");
+        model.addAttribute("producto", producto);
+        return "formProducto";
+    }
+
+    @PostMapping("/productos")
+    public String guardarProductos(Producto producto, Model model){
+        productoService.guardarProducto(producto);
+        return "redirect:/productos";
+    }
+
+    @GetMapping("/crear_servicio")
+    public String mostrarFormServicio(Model model){
+        Servicio servicio = new Servicio();
+        model.addAttribute("titulo","Crear Servicio");
+        model.addAttribute("servicio",servicio);
+        return "formServicio";
+    }
+
+    @PostMapping("/servicios")
+    public String guardarServicio(Servicio servicio){
+        servicioService.guardarServicio(servicio);
+        return "redirect:/servicios";
     }
 }

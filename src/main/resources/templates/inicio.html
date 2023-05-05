@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<!--<nav class="navbar navbar-expand-md navbar-light bg-light">
     <a class="navbar-brand" href="#">HappyPaws</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,13 +31,28 @@
             </li>
         </ul>
     </div>
+</nav>-->
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">HappyPaws</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/register}">Registro</a>
+            </div>
+        </div>
+    </div>
 </nav>
 
 <section class="hero text-center">
     <div class="container">
         <h1>Bienvenidos a HappyPaws</h1>
         <p class="lead">Ofrecemos servicios de alta calidad para el cuidado de tus mascotas</p>
-        <a href="#" class="btn btn-primary btn-lg">Ver Servicios</a>
+        <a th:href="@{/servicios}" class="btn btn-primary btn-lg">Ver Servicios</a>
         <a th:href="@{/productos}" class="btn btn-primary btn-lg">Ver Productos</a>
     </div>
 </section>
@@ -75,7 +90,7 @@
 
 </section>
 <!-- Call to Action -->
-<section class="cta">
+<!--<section class="cta">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -87,7 +102,7 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!-- Footer -->
 <footer class="footer bg-light text-center">
     <div class="container">
@@ -105,7 +120,7 @@
                 <a href="#">Contacto</a>
             </li>
         </ul>
-        <p class="mb-0">&copy; 2023 Veterinaria App. Todos los derechos reservados.</p>
+        <p class="mb-0">&copy; 2023 HappyPaws App. Todos los derechos reservados.</p>
     </div>
 </footer>
 
