@@ -77,7 +77,7 @@ public class vistasController {
         return "redirect:/";
     }
 
-    @PostMapping()
+   /* @PostMapping()
     public String logeo(@RequestParam("username") String username, @RequestParam("password") String password){
         Usuario usuario = usuarioService.buscarUsuarioPorUsername(username);
         if(usuario != null){
@@ -86,6 +86,16 @@ public class vistasController {
             }
         }
         return "redirect:/";
+    }*/
+    @PostMapping()
+    public String logeo(@RequestParam("username") String username, @RequestParam("password") String password){
+        boolean estado = usuarioService.login(username,password);
+
+        if (estado){
+            return "redirect:/listar";
+        }else{
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/productos")

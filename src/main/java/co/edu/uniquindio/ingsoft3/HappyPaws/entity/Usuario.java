@@ -14,6 +14,7 @@ import java.util.List;
 @Builder
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +46,7 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @Builder.Default
+    @ToString.Exclude
     private List<Mascota> mascotas = new ArrayList<>();
 
 

@@ -11,4 +11,6 @@ public interface UsuarioService {
     public List<Usuario> mostrarUsuarios();
 
     public Usuario buscarUsuarioPorUsername(String username);
+
+    boolean login(String username, String password);
 }

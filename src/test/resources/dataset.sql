@@ -1,6 +1,6 @@
 INSERT INTO usuarios VALUES (1,'Perez','juan@example.com','Juan', '123456789', 'juanperez','cedula','juanperez');
-INSERT INTO usuarios VALUES (2,'Garcia','maria@example.com','Maira', '123456789', 'mairagarcia','cedula','mairagarcia');
-INSERT INTO usuarios VALUES (3,'Rodriguez','jose@example.com','Jose', '123456789', 'joserodriguez','cedula','joserodriguez');
+INSERT INTO usuarios VALUES (2,'Garcia','maria@example.com','Maira', '789546321', '$2a$10$Fz0EY6kLZ07qlmW5TcyaauH78CdZnL0.B0wIjdMlQ.FAd4nS6bATW','cedula','username');
+INSERT INTO usuarios VALUES (3,'Rodriguez','jose@example.com','Jose', '456123879', 'joserodriguez','cedula','joserodriguez');
 
 INSERT INTO mascotas VALUES(1,7,'perro','Luna','labrador',1);
 INSERT INTO mascotas VALUES(2,3,'gato','Mewton','Siames',2);
