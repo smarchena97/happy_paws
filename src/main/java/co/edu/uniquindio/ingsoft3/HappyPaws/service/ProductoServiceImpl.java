@@ -50,4 +50,14 @@ public class ProductoServiceImpl implements ProductoService{
             productoRepository.delete(guardado.get());
         }
     }
+
+    @Override
+    public Producto obtenerProducto(Long idProducto) throws Exception {
+        Optional<Producto> buscado = productoRepository.findById(idProducto);
+        if (buscado.isEmpty()){
+            throw new Exception("El producto no existe");
+        }else{
+            return buscado.get();
+        }
+    }
 }

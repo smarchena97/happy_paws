@@ -1,9 +1,6 @@
 package co.edu.uniquindio.ingsoft3.HappyPaws.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -28,4 +25,10 @@ public class Producto implements Serializable {
 
     @Column
     private Double precio;
+    @Builder
+    public Producto (String nombre,String descripcion, Double precio){
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.precio=precio;
+    }
 }

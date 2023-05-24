@@ -14,6 +14,11 @@ INSERT INTO citas VALUES (1,'2023-05-22 10:00:00', 1, 1);
 INSERT INTO citas VALUES (2,'2023-05-23 14:30:00', 2, 2);
 INSERT INTO citas VALUES (3,'2023-05-24 16:45:00', 3, 3);
 
+INSERT INTO productos VALUES (1,'Alimento balanceado para perros de todas las edades', 'Alimento para perros', 15.99);
+INSERT INTO productos VALUES (2,'Espaciosa jaula adecuada para canarios y periquitos', 'Jaula para pájaros pequeños', 29.99);
+INSERT INTO productos VALUES (3,'Arena aglomerante para gatos de todas las razas', 'Arena para gatos', 9.99);
+
+
 
 
 

@@ -13,4 +13,6 @@ public interface ServicioService {
     Servicio actualizarServicio(Servicio servicio, Long idServicio) throws Exception;
 
     void eliminarServicio(Long idServicio) throws Exception;
+
+    Servicio obtenerServicioPorId(Long idServicio)throws Exception;
 }

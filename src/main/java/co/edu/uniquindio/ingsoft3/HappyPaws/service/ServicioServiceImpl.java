@@ -46,5 +46,15 @@ public class ServicioServiceImpl implements ServicioService{
         }
     }
 
+    @Override
+    public Servicio obtenerServicioPorId(Long idServicio) throws Exception {
+        Optional<Servicio> servicio = servicioRepository.findById(idServicio);
+        if (servicio.isEmpty()){
+            throw new Exception("El servicio no existe ");
+        }else{
+            return servicio.get();
+        }
+    }
+
 
 }

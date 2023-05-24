@@ -15,4 +15,6 @@ public interface ProductoService {
     Producto actualizarProducto(Producto producto, Long idProducto) throws Exception;
 
     void eliminarProducto(Long idProducto)throws Exception;
+
+    Producto obtenerProducto(Long idProducto) throws Exception;
 }
