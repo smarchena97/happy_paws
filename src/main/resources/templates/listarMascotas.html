@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8"/>
@@ -40,6 +41,11 @@
             <td th:text="${mascota.edad}"></td>
             <td th:text="${mascota.raza}"></td>
             <td th:text="${mascota.especie}"></td>
+            <td>
+                <a href="@{/pets/removepet/} + ${mascota.idMascota}" class="text-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
+                <span class="mx-1"></span>
+                <a href="#" class="text-primary" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+            </td>
         </tr>
         </tbody>
 

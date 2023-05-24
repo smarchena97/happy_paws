@@ -145,7 +145,7 @@ public class vistasController {
     public String guardarMascota(Mascota mascota,HttpSession session) throws Exception {
         Long idUsuario = (Long) session.getAttribute("idUsuario");
         mascotaService.guardarMascota(mascota,idUsuario);
-        return "redirect:/";
+        return "redirect:/listarMascotas";
     }
 
     @GetMapping("/servicios")
