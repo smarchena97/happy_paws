@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @SpringBootTest
 @Transactional
 public class UsuarioServiceTest {
@@ -28,6 +30,21 @@ public class UsuarioServiceTest {
         Usuario guardado = usuarioService.guardarUsuario(usuario);
 
         Assertions.assertTrue(passwordEncoder.matches("lalolo",guardado.getPassword()));
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void mostrarUsuariosTest(){
+        List<Usuario> usuarios = usuarioService.mostrarUsuarios();
+        Assertions.assertEquals(6,usuarios.size());
+        System.out.println(usuarios);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void buscarUsuarioPorUsernameTest(){
+        Usuario buscado = usuarioService.buscarUsuarioPorUsername("joserodriguez");
+        Assertions.assertEquals("Rodriguez",buscado.getApellido());
     }
 
     @Test

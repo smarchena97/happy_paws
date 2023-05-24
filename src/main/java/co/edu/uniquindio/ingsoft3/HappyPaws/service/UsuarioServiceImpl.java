@@ -52,13 +52,4 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     }
 
-    @Override
-    public Usuario obtenerUsuarioporUsername(String username) throws Exception{
-        Usuario buscado = usuarioRepository.findByUsername(username);
-        if (buscado==null){
-            throw new Exception("El usuario no existe");
-        }else{
-            return buscado;
-        }
-    }
 }

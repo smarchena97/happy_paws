@@ -58,4 +58,26 @@ public class CitaServiceTest {
         List<Cita> citas = citaService.listarCitas();
         Assertions.assertEquals(3,citas.size());
     }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void obtenerCitasUsuarioTest(){
+        try {
+            List<Cita> citas = citaService.obtenerCitasUsuario(1L);
+            Assertions.assertEquals(1,citas.size());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void obtenerCitasMascota(){
+        try {
+            List<Cita> citas = citaService.obtenerCitasMascota(1L);
+            Assertions.assertEquals(1,citas.size());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

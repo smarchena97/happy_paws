@@ -28,10 +28,13 @@ public class MascotaServiceImpl implements MascotaService{
         }else{
             Usuario usuario = buscado.get();
             List<Mascota> mascotas = usuario.getMascotas();
-            mascota.setUsuario(usuario);
-            mascotas.add(mascota);
-            usuario.setMascotas(mascotas);
-
+            if(mascotas.contains(mascota)){
+                throw new Exception("El cliente ya tiene esta mascota registrada");
+            }else{
+                mascota.setUsuario(usuario);
+                mascotas.add(mascota);
+                usuario.setMascotas(mascotas);
+            }
             return usuarioRepository.save(usuario);
         }
     }

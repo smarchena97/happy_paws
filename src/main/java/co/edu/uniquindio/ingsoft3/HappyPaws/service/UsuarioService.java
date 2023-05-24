@@ -15,5 +15,4 @@ public interface UsuarioService {
 
     boolean login(String username, String password);
 
-    Usuario obtenerUsuarioporUsername(String username)throws Exception;
 }
