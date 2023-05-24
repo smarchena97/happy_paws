@@ -61,6 +61,14 @@ public class vistasController {
         return "login";
     }
 
+    @GetMapping("/loginEmpleado")
+    public String mostrarLoginEmpleado(Model model){
+        Usuario usuario = new Usuario();
+        model.addAttribute("usuario",usuario);
+        model.addAttribute("titulo","Login");
+        return "loginEmpleado";
+    }
+
     /*
      * Este metodo muestra el formulario de registro de usuario
      *
@@ -71,6 +79,15 @@ public class vistasController {
         model.addAttribute("usuario",usuario);
         model.addAttribute("titulo","Registro");
         return "formUsuario";
+    }
+
+    /*
+     * Este metodo guarda el usuario creado en la vista y redirige a la pagina de login
+     *
+     * */
+    @GetMapping("/gestion")
+    public String gestionarServiciosProductos(){
+        return "gestion";
     }
 
     /*
@@ -103,6 +120,8 @@ public class vistasController {
             return "redirect:/";
         }
     }
+
+
 
     @GetMapping("/productos")
     public String mostrarListaProductos(Model model){
