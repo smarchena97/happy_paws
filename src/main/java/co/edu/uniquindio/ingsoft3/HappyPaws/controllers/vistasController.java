@@ -4,7 +4,6 @@ import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Mascota;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Producto;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Servicio;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Usuario;
-import co.edu.uniquindio.ingsoft3.HappyPaws.repository.ProductoRepository;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.MascotaServiceImpl;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.ProductoServiceImpl;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.ServicioServiceImpl;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/")
@@ -34,7 +35,6 @@ public class vistasController {
     @Autowired
     private ServicioServiceImpl servicioService;
 
-
     @GetMapping("/")
     public String inicio(Model model){
         return "inicio";
@@ -48,9 +48,12 @@ public class vistasController {
     }
 
     @GetMapping("/listarMascotas")
-    public String mostrarListaMascotas(Model model) {
+    public String mostrarListaMascotas(Model model,HttpSession session) {
+
+        Long idUsuario = (Long) session.getAttribute("idUsuario");
+
         model.addAttribute("titulo", "Lista de mascotas");
-        model.addAttribute("mascotas", mascotaService.listarMascotas());
+        model.addAttribute("mascotas", mascotaService.listarMascotasUsuario(idUsuario));
         return "listarMascotas";
     }
     @GetMapping("/login")
@@ -111,10 +114,11 @@ public class vistasController {
         return "redirect:/";
     }*/
     @PostMapping()
-    public String logeo(@RequestParam("username") String username, @RequestParam("password") String password){
+    public String logeo(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session){
         boolean estado = usuarioService.login(username,password);
-
         if (estado){
+            Long idUsuario = usuarioService.buscarUsuarioPorUsername(username).getIdUsuario();
+            session.setAttribute("idUsuario",idUsuario);
             return "redirect:/listarMascotas";
         }else{
             return "redirect:/";
@@ -138,8 +142,9 @@ public class vistasController {
         return "formMascota";
     }
     @PostMapping("/mascota")
-    public String guardarMascota(Mascota mascota){
-        mascotaService.guardarMascota(mascota);
+    public String guardarMascota(Mascota mascota,HttpSession session) throws Exception {
+        Long idUsuario = (Long) session.getAttribute("idUsuario");
+        mascotaService.guardarMascota(mascota,idUsuario);
         return "redirect:/";
     }
 

@@ -3,6 +3,7 @@ package co.edu.uniquindio.ingsoft3.HappyPaws.service;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Usuario;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UsuarioService {
 
@@ -13,4 +14,6 @@ public interface UsuarioService {
     public Usuario buscarUsuarioPorUsername(String username);
 
     boolean login(String username, String password);
+
+    Usuario obtenerUsuarioporUsername(String username)throws Exception;
 }

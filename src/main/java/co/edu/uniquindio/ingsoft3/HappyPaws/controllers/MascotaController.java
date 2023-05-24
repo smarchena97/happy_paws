@@ -27,6 +27,7 @@ public class MascotaController {
         return mascotaService.buscarMascotaPorId(id).get();
     }
 
+    /*
     @PutMapping("/listar/{id}")
     public Mascota actualizarMascota(@RequestBody Mascota mascotaActualizada, @PathVariable("id") Long id){
         Mascota mascotaDes = mascotaService.buscarMascotaPorId(id).get();
@@ -42,4 +43,17 @@ public class MascotaController {
         Mascota m = mascotaService.guardarMascota(mascota);
         return "Mascota guardada";
     }
+     */
+
+    @PutMapping("/listar/{id}")
+    public Mascota actualizarMascota(@RequestBody Mascota mascotaActualizada, @PathVariable("id") Long id) throws Exception {
+        Long idUsuario = mascotaService.buscarMascotaPorId(id).get().getUsuario().getIdUsuario();
+        return mascotaService.actualizarMascota(mascotaActualizada,idUsuario);
+    }
+    @PostMapping("/")
+    public String guardarMascota(@RequestBody Mascota mascota,@RequestBody Long idCliente) throws Exception {
+        mascotaService.guardarMascota(mascota,idCliente);
+        return "Mascota guardada";
+    }
+
 }
