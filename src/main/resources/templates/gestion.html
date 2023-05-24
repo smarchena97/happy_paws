@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <title th:text="${titulo}">Gestion | Veterinaria</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .logout-button {
+            color: red;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,6 +28,13 @@
                 <a class="nav-link active" aria-current="page" th:href="@{/gestion/productos}">Productos</a>
                 <a class="nav-link active" aria-current="page" th:href="@{/gestion/servicios}">Servicios</a>
                 <a class="nav-link active" aria-current="page" th:href="@{/gestion/citas}">Citas</a>
+            </div>
+            <div class="ml-auto">
+                <form th:action="@{/gestion/logout}" method="get">
+                    <button type="submit" class="logout-button">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
             </div>
         </div>
     </div>
