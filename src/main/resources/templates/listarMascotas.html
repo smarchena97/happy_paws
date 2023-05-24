@@ -42,7 +42,7 @@
             <td th:text="${mascota.raza}"></td>
             <td th:text="${mascota.especie}"></td>
             <td>
-                <a href="@{/pets/removepet/} + ${mascota.idMascota}" class="text-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
+                <a th:href="@{/mascotas/eliminar/{id}(id=${mascota.idMascota})}" class="text-danger" title="Eliminar" onclick="return confirm('¿Estas seguro de eliminar esta mascota?')"><i class="fas fa-trash-alt"></i></a>
                 <span class="mx-1"></span>
                 <a href="#" class="text-primary" title="Editar"><i class="fas fa-pencil-alt"></i></a>
             </td>

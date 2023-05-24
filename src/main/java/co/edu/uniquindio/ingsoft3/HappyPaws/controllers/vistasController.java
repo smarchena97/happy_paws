@@ -11,10 +11,7 @@ import co.edu.uniquindio.ingsoft3.HappyPaws.service.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -181,5 +178,10 @@ public class vistasController {
     public String guardarServicio(Servicio servicio){
         servicioService.guardarServicio(servicio);
         return "redirect:/servicios";
+    }
+    @GetMapping("/mascotas/eliminar/{id}")
+    public String eliminarMascota(@PathVariable("id") Long id) throws Exception {
+        mascotaService.eliminarMascota(id);
+        return "redirect:/listarMascotas";  // Redirige a la página de gestión de productos
     }
 }
