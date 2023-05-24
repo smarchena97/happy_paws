@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .logout-button {
+            color: red;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
@@ -20,6 +29,13 @@
                 <a class="nav-link active" aria-current="page" th:href="@{/gestion/productos}">Productos</a>
                 <a class="nav-link active" aria-current="page" th:href="@{/gestion/servicios}">Servicios</a>
                 <a class="nav-link active" aria-current="page" th:href="@{/gestion/citas}">Citas</a>
+            </div>
+            <div class="ml-auto">
+                <form th:action="@{/gestion/logout}" method="get">
+                    <button type="submit" class="logout-button">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
             </div>
         </div>
     </div>
