@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ServicioServiceImpl implements ServicioService{
@@ -22,4 +23,28 @@ public class ServicioServiceImpl implements ServicioService{
     public Servicio guardarServicio(Servicio servicio) {
         return servicioRepository.save(servicio);
     }
+
+    @Override
+    public Servicio actualizarServicio(Servicio servicio, Long idServicio) throws Exception {
+        Optional<Servicio> guardado = servicioRepository.findById(idServicio);
+
+        if(guardado.isEmpty()){
+            throw new Exception("El servicio no existe");
+        }else{
+            return servicioRepository.save(servicio);
+        }
+    }
+
+    @Override
+    public void eliminarServicio(Long idServicio) throws Exception {
+        Optional<Servicio> guardado = servicioRepository.findById(idServicio);
+
+        if(guardado.isEmpty()){
+            throw new Exception("El servicio no existe");
+        }else{
+            servicioRepository.delete(guardado.get());
+        }
+    }
+
+
 }

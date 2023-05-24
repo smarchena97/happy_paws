@@ -11,4 +11,8 @@ public interface ProductoService {
     public Producto buscarPorNombre(String nombre);
 
     public Producto guardarProducto(Producto producto);
+
+    Producto actualizarProducto(Producto producto, Long idProducto) throws Exception;
+
+    void eliminarProducto(Long idProducto)throws Exception;
 }
