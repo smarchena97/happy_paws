@@ -8,15 +8,15 @@
           crossorigin="anonymous">
 </head>
 <body>
-<h1>AQUI DEBE IR EL CRUD DE PRODUCTO</h1>
+<h1>AQUI SE DEBEN LISTAR LAS CITAS</h1>
 <!--
 <div class="container py-4">
     <div class="card bg-light">
         <div class="card-header" th:text="${titulo}"></div>
         <div class="card-body">
-            <form th:action="@{/productos}" th:object="${producto}" method="post">
+            <form th:action="@{/servicios}" th:object="${servicio}" method="post">
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" th:text="'Producto'"></label>
+                    <label class="col-sm-2 col-form-label" th:text="'Servicio'"></label>
                     <input type="text" th:field="*{nombre}" class="form-control"/>
                 </div>
                 <div class="form-group row">
