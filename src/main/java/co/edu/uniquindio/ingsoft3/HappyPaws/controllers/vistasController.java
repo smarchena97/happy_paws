@@ -47,6 +47,12 @@ public class vistasController {
         return "listarClientes";
     }
 
+    @GetMapping("/listarMascotas")
+    public String mostrarListaMascotas(Model model) {
+        model.addAttribute("titulo", "Lista de mascotas");
+        model.addAttribute("mascotas", mascotaService.listarMascotas());
+        return "listarMascotas";
+    }
     @GetMapping("/login")
     public String mostrarLogin(Model model){
         Usuario usuario = new Usuario();
@@ -92,7 +98,7 @@ public class vistasController {
         boolean estado = usuarioService.login(username,password);
 
         if (estado){
-            return "redirect:/listar";
+            return "redirect:/listarMascotas";
         }else{
             return "redirect:/";
         }
@@ -112,7 +118,6 @@ public class vistasController {
         model.addAttribute("mascota",mascota);
         return "formMascota";
     }
-
     @PostMapping("/mascota")
     public String guardarMascota(Mascota mascota){
         mascotaService.guardarMascota(mascota);
