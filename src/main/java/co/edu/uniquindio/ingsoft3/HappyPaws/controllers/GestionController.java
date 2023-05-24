@@ -1,7 +1,9 @@
 package co.edu.uniquindio.ingsoft3.HappyPaws.controllers;
 
+import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Cita;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Producto;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Servicio;
+import co.edu.uniquindio.ingsoft3.HappyPaws.service.CitaService;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.ProductoService;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.ServicioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.swing.plaf.PanelUI;
+import java.util.List;
 
 @Controller
 @RequestMapping("/gestion")
@@ -21,6 +24,9 @@ public class GestionController {
 
     @Autowired
     ServicioService servicioService;
+
+    @Autowired
+    CitaService citaService;
 
     @GetMapping("/")
     public String gestionVista(){
@@ -115,9 +121,10 @@ public class GestionController {
     }
 
     @GetMapping("/citas")
-        public String listarCitas(HttpSession session, Model model){
-        Long idUsuario = (Long) session.getAttribute("idUsuario");
-        model.addAttribute("idUsuario",idUsuario);
+        public String listarCitas(Model model){
+        List<Cita> citas = citaService.listarCitas();
+        model.addAttribute("titulo","Historico de citas");
+        model.addAttribute("citas",citas);
         return "listarCitas";
     }
 }
