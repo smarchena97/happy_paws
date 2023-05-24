@@ -8,13 +8,28 @@
           crossorigin="anonymous">
 </head>
 <body>
-<h1>AQUI DEBE IR EL CRUD DE PRODUCTO</h1>
-<!--
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/gestion}">HappyPaws</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" th:href="@{/gestion/productos}">Productos</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/gestion/servicios}">Servicios</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/gestion/citas}">Citas</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
 <div class="container py-4">
     <div class="card bg-light">
         <div class="card-header" th:text="${titulo}"></div>
         <div class="card-body">
-            <form th:action="@{/productos}" th:object="${producto}" method="post">
+            <form th:action="@{/gestion/productos/nuevo}" th:object="${producto}" method="post">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Producto'"></label>
                     <input type="text" th:field="*{nombre}" class="form-control"/>
@@ -32,6 +47,6 @@
         </div>
     </div>
 </div>
--->
+
 </body>
 </html>
