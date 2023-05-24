@@ -58,4 +58,16 @@ public class CitaServiceImpl implements CitaService{
             return buscada.get();
         }
     }
+
+    @Override
+    public List<Cita> obtenerCitasUsuario(Long idUsuario) throws Exception {
+        List<Cita> citasUsuario = citaRepository.obtenerCitasMascotasCliente(idUsuario);
+        return citasUsuario;
+    }
+
+    @Override
+    public List<Cita> obtenerCitasMascota(Long idMascota) throws Exception {
+        List<Cita> citasMascota = citaRepository.obtenerCitasMascota(idMascota);
+        return citasMascota;
+    }
 }

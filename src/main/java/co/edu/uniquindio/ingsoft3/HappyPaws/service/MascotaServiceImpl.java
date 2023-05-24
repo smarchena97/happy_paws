@@ -60,4 +60,15 @@ public class MascotaServiceImpl implements MascotaService{
             return mascotaRepository.save(mascota);
         }
     }
+
+    @Override
+    public void eliminarMascota(Long idMascota) throws Exception {
+        Optional<Mascota> buscada = mascotaRepository.findById(idMascota);
+
+        if (buscada.isEmpty()){
+            throw new Exception("La mascota no existe");
+        }else{
+            mascotaRepository.delete(buscada.get());
+        }
+    }
 }

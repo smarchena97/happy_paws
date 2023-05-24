@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductoServiceImpl implements ProductoService{
@@ -26,5 +27,27 @@ public class ProductoServiceImpl implements ProductoService{
     @Override
     public Producto guardarProducto(Producto producto) {
         return productoRepository.save(producto);
+    }
+
+    @Override
+    public Producto actualizarProducto(Producto producto, Long idProducto) throws Exception{
+        Optional<Producto> guardado = productoRepository.findById(idProducto);
+
+        if (guardado.isEmpty()){
+            throw new Exception("El producto no existe");
+        }else{
+            return productoRepository.save(producto);
+        }
+    }
+
+    @Override
+    public void eliminarProducto(Long idProducto) throws Exception{
+        Optional<Producto> guardado = productoRepository.findById(idProducto);
+
+        if (guardado.isEmpty()){
+            throw new Exception("El producto no existe");
+        }else{
+            productoRepository.delete(guardado.get());
+        }
     }
 }

@@ -45,6 +45,7 @@ public class MascotaController {
     }
      */
 
+
     @PutMapping("/listar/{id}")
     public Mascota actualizarMascota(@RequestBody Mascota mascotaActualizada, @PathVariable("id") Long id) throws Exception {
         Long idUsuario = mascotaService.buscarMascotaPorId(id).get().getUsuario().getIdUsuario();
@@ -56,4 +57,8 @@ public class MascotaController {
         return "Mascota guardada";
     }
 
+    @DeleteMapping("/eliminar/{idMascota}")
+    public String eliminarMascota(@PathVariable("idMascota")Long idMascota){
+        return "redirect:/listar";  //ESTO TOCA HACERLO SOLO PUSE EL RETURN PARA QUE NO DE ERROR
+    }
 }

@@ -14,4 +14,8 @@ public interface CitaService {
     List<Cita> listarCitas();
 
    Cita obtenerCita(Long idCita) throws Exception;
+
+   List<Cita> obtenerCitasUsuario(Long idUsuario)throws Exception;
+
+   List<Cita> obtenerCitasMascota(Long idMascota) throws Exception;
 }

@@ -16,4 +16,6 @@ public interface MascotaService {
     public Optional<Mascota> buscarMascotaPorId(Long id);
 
     Mascota actualizarMascota(Mascota mascota, Long idMascota) throws Exception;
+
+    void eliminarMascota(Long idMascota) throws Exception;
 }

@@ -9,4 +9,8 @@ public interface ServicioService {
     public List<Servicio> listarServicios();
 
     public Servicio guardarServicio(Servicio servicio);
+
+    Servicio actualizarServicio(Servicio servicio, Long idServicio) throws Exception;
+
+    void eliminarServicio(Long idServicio) throws Exception;
 }
