@@ -3,6 +3,7 @@ package co.edu.uniquindio.ingsoft3.HappyPaws.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 @Entity
@@ -20,13 +21,13 @@ public class Servicio {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @Column
+    @Column(nullable = false, length = 100)
     private String nombre;
 
-    @Column
+    @Column(nullable = false, length = 100)
     private String descripcion;
 
-    @Column
+    @Positive
     private Double precio;
 
     @OneToOne(mappedBy = "servicio")

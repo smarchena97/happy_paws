@@ -3,6 +3,7 @@ package co.edu.uniquindio.ingsoft3.HappyPaws.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
 import java.io.Serializable;
 
 @Entity
@@ -17,13 +18,13 @@ public class Producto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false, length = 100)
     private String nombre;
 
-    @Column
+    @Column(nullable = false, length = 100)
     private String descripcion;
 
-    @Column
+    @Positive
     private Double precio;
     @Builder
     public Producto (String nombre,String descripcion, Double precio){

@@ -8,7 +8,7 @@ INSERT INTO mascotas VALUES(3,12,'perro','Lucas','Schnauzer',3);
 
 INSERT INTO servicios VALUES (1, 'Servicio de vacunación', 'Vacunación', 80.00);
 INSERT INTO servicios VALUES (2,'Servicio de limpieza dental', 'Limpieza dental',30.00);
-INSERT INTO servicios VALUES (3, 'Servicio de baño y peluquería', 'Baño y peluquería', 50.00);
+INSERT INTO servicios VALUES (9, 'Servicio de baño y peluquería', 'Baño y peluquería', 50.00);
 
 INSERT INTO citas VALUES (1,'2023-05-22 10:00:00', 1, 1);
 INSERT INTO citas VALUES (2,'2023-05-23 14:30:00', 2, 2);

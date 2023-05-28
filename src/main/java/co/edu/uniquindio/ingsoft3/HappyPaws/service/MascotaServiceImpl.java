@@ -60,7 +60,18 @@ public class MascotaServiceImpl implements MascotaService{
         if (usuarioBuscado.isEmpty()){
             throw new Exception("El cliente no existe");
         }else{
-            return mascotaRepository.save(mascota);
+            Usuario usuario = usuarioBuscado.get();
+            List<Mascota> mascotas = usuario.getMascotas();
+            if(mascotas.contains(mascota)){
+                int index = mascotas.indexOf(mascota);
+                mascotas.set(index,mascota);
+                usuario.setMascotas(mascotas);
+                usuarioRepository.save(usuario);
+                return mascotaRepository.findById(mascota.getIdMascota()).get();
+            }else{
+                throw new Exception("El cliente no tiene esta mascota registrada");
+
+            }
         }
     }
 

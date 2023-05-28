@@ -68,6 +68,7 @@ public class MascotaServiceTest {
         actual.setEdad(14);
         try {
             Mascota actualizada = mascotaService.actualizarMascota(actual,1L);
+            System.out.println(mascotaService.listarMascotas());
             Assertions.assertEquals(14,actualizada.getEdad());
         } catch (Exception e) {
             throw new RuntimeException(e);
