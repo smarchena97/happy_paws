@@ -16,21 +16,21 @@
             <form th:action="@{/mascota}" th:object="${mascota}" method="post">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Nombre'"></label>
-                    <input type="text" th:field="*{nombre}" class="form-control"/>
+                    <input type="text" th:field="*{nombre}" class="form-control" pattern="[A-Za-z\s]+" required/>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Raza'"></label>
-                    <input type="text" th:field="*{raza}" class="form-control"/>
+                    <input type="text" th:field="*{raza}" class="form-control" pattern="[A-Za-z\s]+" required/>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Edad'"></label>
-                    <input type="number" th:field="*{edad}" class="form-control"/>
+                    <input type="number" th:field="*{edad}" class="form-control" min="0" max="100" required/>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Especie'"></label>
-                    <input type="text" th:field="*{especie}" class="form-control"/>
+                    <input type="text" th:field="*{especie}" class="form-control" pattern="[A-Za-z\s]+" required/>
                 </div>
-                <input type="submit" th:value="${titulo}" class="btn btn-secondary"/>
+                <input type="submit" th:value="${titulo}" class="btn btn-secondary" />
             </form>
         </div>
     </div>

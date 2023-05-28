@@ -48,17 +48,17 @@
             <form th:action="@{/gestion/productos/nuevo}" th:object="${producto}" method="post">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Producto'"></label>
-                    <input type="text" th:field="*{nombre}" class="form-control"/>
+                    <input type="text" th:field="*{nombre}" class="form-control" pattern="[A-Za-z\s]+" required/>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Descripcion'"></label>
-                    <input type="text" th:field="*{descripcion}" class="form-control"/>
+                    <input type="text" th:field="*{descripcion}" class="form-control" pattern="[A-Za-z\s]+" required/>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Precio'"></label>
-                    <input type="number" th:field="*{precio}" class="form-control"/>
+                    <input type="number" th:field="*{precio}" class="form-control" min="1" required/>
                 </div>
-                <input type="submit" th:value="${titulo}" class="btn btn-secondary"/>
+                <input type="submit" th:value="${titulo}" class="btn btn-secondary" pattern="[A-Za-z\s]+" required/>
             </form>
         </div>
     </div>
