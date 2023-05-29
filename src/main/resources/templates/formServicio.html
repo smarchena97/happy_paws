@@ -58,7 +58,7 @@
                     <label class="col-sm-2 col-form-label" th:text="'Precio'"></label>
                     <input type="number" th:field="*{precio}" class="form-control" min="1" required/>
                 </div>
-                <input type="submit" th:value="${titulo}" class="btn btn-secondary"/>
+                <input type="submit" th:value="${titulo}" onclick="return alert('Servicio creado exitosamente')" class="btn btn-secondary"/>
             </form>
         </div>
     </div>

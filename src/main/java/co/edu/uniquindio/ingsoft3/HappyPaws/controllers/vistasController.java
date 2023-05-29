@@ -140,7 +140,7 @@ public class vistasController {
         return "formMascota";
     }
     @PostMapping("/mascota")
-    public String guardarMascota(Mascota mascota,HttpSession session) throws Exception {
+    public String guardarMascota(Mascota mascota,HttpSession session, Model model) throws Exception {
         Long idUsuario = (Long) session.getAttribute("idUsuario");
         mascotaService.guardarMascota(mascota,idUsuario);
         return "redirect:/listarMascotas";
