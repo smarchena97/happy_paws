@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
@@ -183,5 +184,25 @@ public class vistasController {
     public String eliminarMascota(@PathVariable("id") Long id) throws Exception {
         mascotaService.eliminarMascota(id);
         return "redirect:/listarMascotas";  // Redirige a la página de gestión de productos
+    }
+
+    @GetMapping("/actualizar/{idMascota}")
+    public String actualizarMascota( @PathVariable("idMascota") Long idMascota, Model model) throws Exception {
+        Optional<Mascota> mascota = mascotaService.buscarMascotaPorId(idMascota);
+        if (mascota.isPresent()){
+            model.addAttribute("mascota",mascota.get());
+            model.addAttribute("titulo","Actualizacion de mascota");
+            return "formActualizacionMascota";
+        }else{
+            return "/listarMascotas";
+        }
+    }
+
+    @PostMapping("/actualizar/{idMascota}")
+    public String actualizarservicio(@PathVariable("idMascota") Long idMascota,Mascota mascota,HttpSession session) throws Exception {
+        Long idUsuario = (Long) session.getAttribute("idUsuario");
+        mascota.setIdMascota(idMascota);
+        mascotaService.actualizarMascota(mascota,idUsuario);
+        return "redirect:/listarMascotas";  // Redirige a la página de gestión de servicios
     }
 }

@@ -3,6 +3,7 @@ package co.edu.uniquindio.ingsoft3.HappyPaws.controllers;
 import co.edu.uniquindio.ingsoft3.HappyPaws.entity.Mascota;
 import co.edu.uniquindio.ingsoft3.HappyPaws.service.MascotaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -46,11 +47,7 @@ public class MascotaController {
      */
 
 
-    @PutMapping("/listar/{id}")
-    public Mascota actualizarMascota(@RequestBody Mascota mascotaActualizada, @PathVariable("id") Long id) throws Exception {
-        Long idUsuario = mascotaService.buscarMascotaPorId(id).get().getUsuario().getIdUsuario();
-        return mascotaService.actualizarMascota(mascotaActualizada,idUsuario);
-    }
+
     @PostMapping("/")
     public String guardarMascota(@RequestBody Mascota mascota,@RequestBody Long idCliente) throws Exception {
         mascotaService.guardarMascota(mascota,idCliente);

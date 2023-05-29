@@ -48,4 +48,5 @@ public class Mascota {
         this.raza = raza;
         this.usuario = usuario;
     }
+
 }

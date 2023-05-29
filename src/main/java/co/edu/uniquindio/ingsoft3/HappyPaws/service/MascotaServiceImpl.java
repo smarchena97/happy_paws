@@ -62,6 +62,7 @@ public class MascotaServiceImpl implements MascotaService{
         }else{
             Usuario usuario = usuarioBuscado.get();
             List<Mascota> mascotas = usuario.getMascotas();
+            mascota.setUsuario(usuarioBuscado.get());
             if(mascotas.contains(mascota)){
                 int index = mascotas.indexOf(mascota);
                 mascotas.set(index,mascota);
