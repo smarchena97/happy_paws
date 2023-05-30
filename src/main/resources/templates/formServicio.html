@@ -45,7 +45,7 @@
     <div class="card bg-light">
         <div class="card-header" th:text="${titulo}"></div>
         <div class="card-body">
-            <form th:action="@{/gestion/servicios/nuevo}" th:object="${servicio}" method="post">
+            <form th:action="@{/gestion/servicios/nuevo}" onsubmit="return validarCampos(event)" th:object="${servicio}" method="post">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Servicio'"></label>
                     <input type="text" th:field="*{nombre}" class="form-control" pattern="[A-Za-z\s]+" required/>
@@ -63,6 +63,30 @@
         </div>
     </div>
 </div>
+
+<script>
+    function validarCampos(event) {
+        // Obtener todos los campos requeridos del formulario
+        const camposRequeridos = document.querySelectorAll('input[required]');
+
+        // Verificar si todos los campos requeridos son válidos
+        let todosValidos = true;
+        camposRequeridos.forEach(function (campo) {
+            if (!campo.validity.valid) {
+                todosValidos = false;
+            }
+        });
+
+        if (!todosValidos) {
+            event.preventDefault(); // Detener el envío del formulario si hay campos inválidos
+            return false;
+        }
+
+        // Mostrar el mensaje de éxito
+        alert('Servicio creado exitosamente');
+        return true;
+    }
+</script>
 
 </body>
 </html>
