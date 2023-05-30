@@ -31,7 +31,7 @@
                     <label class="col-sm-2 col-form-label" th:text="'Especie'"></label>
                     <input type="text" th:field="*{especie}" class="form-control" pattern="[A-Za-z\s]+" required/>
                 </div>
-                <input type="submit" th:value="${titulo}" class="btn btn-secondary" onclick="return alert('Mascota creada exitosamente')"/>
+                <input type="submit" th:value="${titulo}" class="btn btn-secondary" />
                 <input type="hidden" id="exito" th:value="${exito}"/>
             </form>
         </div>
